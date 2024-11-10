@@ -1,7 +1,13 @@
 extends StaticBody2D
 
-@export var converstation: Array[String]
+@export var recruit_converstation: Array[String]
+@export var quest_conversation: Array[String]
+@export var completed_coversation: Array[String]
+
 var active: bool = false
+
+var active_quest: bool = false
+var finished_quest: bool = false
 
 signal activation
 
@@ -18,10 +24,19 @@ func _on_close_area_area_entered(area: Area2D) -> void:
 	if area is Player:
 		$CanvasLayer/TextureRect.show()
 		active = true
-		
-		for text in converstation:
-			$CanvasLayer/TextureRect/Label.text = text
-			await activation
+		if !active_quest && !finished_quest:
+			for text in recruit_converstation:
+				$CanvasLayer/TextureRect/Label.text = text
+				await activation
+			active_quest = true
+		elif active_quest && !finished_quest:
+			for text in quest_conversation:
+				$CanvasLayer/TextureRect/Label.text = text
+				await activation
+		elif !active_quest && finished_quest:
+			for text in completed_coversation:
+				$CanvasLayer/TextureRect/Label.text = text
+				await activation
 
 
 func _on_close_area_area_exited(area: Area2D) -> void:
