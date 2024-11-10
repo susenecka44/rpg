@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://h0pjed41lu5b"]
+[gd_scene load_steps=6 format=3 uid="uid://h0pjed41lu5b"]
 
 [ext_resource type="Script" path="res://scripts/Teleport.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://mpe86homv2rs" path="res://fonts/kenvector_future.ttf" id="2"]
+[ext_resource type="Texture2D" uid="uid://5aychnrs15bo" path="res://sprites/ui/UIbg.png" id="2_vvxyi"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 16.0
 
-[sub_resource type="FontFile" id="2"]
+[sub_resource type="FontFile" id="FontFile_51rxe"]
 fallbacks = Array[Font]([ExtResource("2")])
-face_index = null
-embolden = null
-transform = null
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -26,14 +27,31 @@ shape = SubResource("1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-visible = false
-anchors_preset = 15
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.760784, 0.662745, 0.623529, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 120.0
+offset_right = 215.0
+offset_bottom = 266.0
+grow_horizontal = 2
+texture = ExtResource("2_vvxyi")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -75.0
-theme_override_fonts/font = SubResource("2")
-text = "Press SPACE to enter."
+offset_left = 4.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -5.0
+theme_override_fonts/font = SubResource("FontFile_51rxe")
+text = "Press SPACE to enter the house."
+autowrap_mode = 2
 
 [connection signal="area_entered" from="." to="." method="_on_Teleport_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Teleport_area_exited"]

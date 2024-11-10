@@ -49,7 +49,8 @@ use_parent_material = true
 tile_set = ExtResource("1")
 
 [node name="TeleportToHouse" parent="Environment" instance=ExtResource("4")]
-position = Vector2(472, 384)
+position = Vector2(472, 381)
+next_location = Vector2(480, 440)
 
 [node name="Cacti" type="Node2D" parent="Environment"]
 z_index = 4
