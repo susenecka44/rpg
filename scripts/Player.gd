@@ -3,6 +3,7 @@ extends Area2D
 class_name Player
 
 @export var speed: float = 5
+@export var camera_toshake: Camera2D
 signal moved
 
 const TILE_SIZE = 16
@@ -19,7 +20,6 @@ var last_action = ""
 var cacti_damage = 10
 
 func _ready():
-	print(GameData.next_location)
 	position = GameData.next_location
 	$MoveTimer.wait_time = 1.0/speed  
 	
@@ -38,7 +38,7 @@ func move_tile(direction: Vector2):
 	if $RayCast2D.is_colliding():
 		var other = $RayCast2D.get_collider()
 		if other.is_in_group("Cacti"):
-			PlayerState.decrease_health(cacti_damage)
+			get_hurt(cacti_damage)
 		return false
 	else:
 		var target_position = position + direction * TILE_SIZE
@@ -61,6 +61,7 @@ func _on_MoveTimer_timeout():
 
 func get_hurt(value):
 	PlayerState.decrease_health(value)
+	camera_toshake.shake()
 
 func collect_coins(value):
 	PlayerState.add_coins(value)

@@ -102,9 +102,10 @@ position = Vector2(312, 216)
 [node name="CoinsLarge4" parent="Environment/Coins" instance=ExtResource("9")]
 position = Vector2(200, 344)
 
-[node name="Player" parent="." instance=ExtResource("2")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera_toshake") instance=ExtResource("2")]
 z_index = 20
 position = Vector2(420, 340)
+camera_toshake = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow_object") instance=ExtResource("3")]
 position = Vector2(530, 342)
