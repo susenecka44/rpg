@@ -7,7 +7,7 @@ class_name Player
 signal moved
 
 const TILE_SIZE = 16
-const FloatingTextScene = preload("res://scenes/FloatingText.tscn")  # Preload FloatingText scene
+const FloatingTextScene = preload("res://scenes/FloatingText.tscn") 
 
 const inputs = {
 	"Left": Vector2.LEFT,
@@ -19,6 +19,7 @@ const inputs = {
 var last_dir = Vector2.ZERO
 var last_action = ""
 var cacti_damage = 10
+var knight_damage = 40
 
 func _ready():
 	position = GameData.next_location
@@ -49,6 +50,14 @@ func move_tile(direction: Vector2):
 		move_with_tween(target_position)
 		moved.emit()
 		return true
+	_align_position()
+
+func _align_position():
+	# align position to the middle of a tile
+	position.x = int(position.x / TILE_SIZE) * TILE_SIZE
+	position.y = int(position.y / TILE_SIZE) * TILE_SIZE
+	position += Vector2.ONE * TILE_SIZE/2
+
 
 func move_with_tween(target_position: Vector2):
 	var tween = get_tree().create_tween()

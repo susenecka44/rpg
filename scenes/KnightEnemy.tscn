@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://od2cjlui7ex0"]
+
+[ext_resource type="Texture2D" uid="uid://dlo360g163kto" path="res://sprites/characters/roguelikeChar_transparent.png" id="1_s0obc"]
+[ext_resource type="Script" path="res://scenes/knight_enemy.gd" id="1_xd4tb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71wmk"]
+size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28icc"]
+size = Vector2(22.1296, 22.2857)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agpn7"]
+
+[node name="KnightEnemy" type="StaticBody2D" groups=["KnightEnemy"]]
+collision_layer = 255
+script = ExtResource("1_xd4tb")
+
+[node name="Detection area" type="Area2D" parent="."]
+scale = Vector2(3.727, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection area"]
+scale = Vector2(1.52823, 1.397)
+shape = SubResource("RectangleShape2D_71wmk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, -8)
+texture = ExtResource("1_s0obc")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 187, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.96046e-08)
+scale = Vector2(1.03846, 0.875)
+shape = SubResource("RectangleShape2D_28icc")
+
+[node name="DammageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DammageArea"]
+shape = SubResource("RectangleShape2D_agpn7")
+
+[connection signal="area_entered" from="Detection area" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="Detection area" to="." method="_on_detection_area_area_exited"]
+[connection signal="area_entered" from="DammageArea" to="." method="_on_dammage_area_area_entered"]
