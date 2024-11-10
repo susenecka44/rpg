@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv56awnyt3ei5"]
+[gd_scene load_steps=5 format=3 uid="uid://dv56awnyt3ei5"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_xd3lb"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcikq"]
+bg_color = Color(0.654902, 0.156863, 0.192157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0177658, 0.213255, 0.157616, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3c61x"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fihxs"]
-bg_color = Color(0.878431, 0.717647, 0, 1)
+bg_color = Color(0.108141, 0.440174, 0.235627, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_xd3lb")
@@ -15,11 +25,23 @@ offset_right = 1141.0
 offset_bottom = 34.0
 text = "Coins: 0"
 
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+offset_left = 18.0
+offset_top = 40.0
+offset_right = 418.0
+offset_bottom = 67.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_rcikq")
+value = 100.0
+show_percentage = false
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 408.0
-offset_bottom = 35.0
+offset_left = 18.0
+offset_top = 40.0
+offset_right = 418.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0.819619, 0.814584, 0.792024, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_3c61x")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fihxs")
 value = 100.0
 show_percentage = false

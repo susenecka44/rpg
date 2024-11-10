@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Player
 
-@export var speed: float = 4
+@export var speed: float = 5
 signal moved
 
 const TILE_SIZE = 16
@@ -18,25 +18,16 @@ var last_dir = Vector2.ZERO
 var last_action = ""
 var cacti_damage = 10
 
-
 func _ready():
-	# align position to the middle of a tile
 	print(GameData.next_location)
 	position = GameData.next_location
-	"""
-	position.x = int(position.x / TILE_SIZE) * TILE_SIZE
-	position.y = int(position.y / TILE_SIZE) * TILE_SIZE
-	position += Vector2.ONE * TILE_SIZE/2
-	"""
-	# set timer interval according to the speed
-	$MoveTimer.wait_time = 1.0/speed
-
+	$MoveTimer.wait_time = 1.0/speed  
+	
 func _unhandled_input(event):
 	for action in inputs:
 		if event.is_action_pressed(action):
 			var dir = inputs[action]
 			if move_tile(dir):
-				# repeat the action in fixed intervals, if it is still pressed
 				last_action = action
 				last_dir = dir
 				$MoveTimer.start()
@@ -50,16 +41,20 @@ func move_tile(direction: Vector2):
 			PlayerState.decrease_health(cacti_damage)
 		return false
 	else:
-		position += direction * TILE_SIZE
+		var target_position = position + direction * TILE_SIZE
+		move_with_tween(target_position)
 		moved.emit()
 		return true
-	
+
+func move_with_tween(target_position: Vector2):
+	var tween = create_tween()
+	tween.tween_property(self, "position", target_position, 1.0 / speed)
+	tween.set_parallel(true) 
 
 func _on_MoveTimer_timeout():
 	if Input.is_action_pressed(last_action):
-		if move_tile(last_dir):  # do the same move as the last time
+		if move_tile(last_dir): 
 			return
-	# reset
 	last_action = ""
 	last_dir = Vector2.ZERO
 	$MoveTimer.stop()

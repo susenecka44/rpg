@@ -1,7 +1,15 @@
 extends Node2D
 
 @export var follow_object: Node2D
+@export var follow_speed: float = 5.0 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position = follow_object.position
+	if follow_object:
+		var target_position = follow_object.position
+		
+		var distance = target_position.distance_to(position)
+		
+		if distance < 1.0:
+			position = target_position
+		else:
+			position = position.lerp(target_position, follow_speed * delta)

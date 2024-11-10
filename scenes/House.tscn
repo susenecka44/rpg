@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/camera_script.gd" id="6_aw68x"]
 
 [node name="House" type="Node2D"]
+position = Vector2(-39, -10)
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -27,7 +28,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1179682, 2621441, 17, 1179674, 2555905, 17, 1179675, 2555905, 17, 1179676, 2555905, 17, 1179677, 2555905, 17, 1179678, 2555905, 17, 1179679, 2555905, 17, 1179680, 2555905, 17, 1179681, 2555905, 17, 1179673, 2490369, 17, 1245209, 1179649, 8, 1245218, 1179649, 8, 1245212, 1507329, 7, 1245215, 1507329, 7, 1376281, 983041, 3, 1310750, 720897, 4, 1310749, 655361, 4, 1310748, 720897, 5, 1310751, 720897, 6, 1310747, 1376257, 3, 1310752, 1441793, 3, 1441819, 0, 5, 1769497, 131073, 14, 1769498, 262145, 14, 1703961, 131073, 12, 1703962, 262145, 12, 1703970, 262145, 9, 1703969, 131073, 9, 1769506, 262145, 11, 1769505, 131073, 11, 1835037, 1835009, 5, 1835038, 1900545, 5)
 
 [node name="TeleportFromHouse" parent="Environment" instance=ExtResource("4")]
-position = Vector2(481, 454)
+position = Vector2(480, 447)
 next_scene = "res://scenes/World.tscn"
 message = "Press SPACE to leave."
 next_location = Vector2(420, 340)

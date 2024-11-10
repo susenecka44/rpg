@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://5aychnrs15bo" path="res://sprites/ui/UIbg.png" id="2_vvxyi"]
 
 [sub_resource type="CircleShape2D" id="1"]
-radius = 16.0
+radius = 28.0179
 
 [sub_resource type="FontFile" id="FontFile_51rxe"]
 fallbacks = Array[Font]([ExtResource("2")])
