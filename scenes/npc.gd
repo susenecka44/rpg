@@ -11,8 +11,6 @@ var finished_quest: bool = false
 
 signal activation
 
-func _ready() -> void:
-	$AnimationPlayer.play("hide")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

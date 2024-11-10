@@ -8,7 +8,7 @@ class_name Camera
 @export var shake_duration: float = 0.3  
 
 func _ready() -> void:
-	pass
+	position = GameData.next_location
 
 func _process(delta: float) -> void:
 	if follow_object:
