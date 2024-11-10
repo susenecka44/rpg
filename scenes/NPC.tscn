@@ -122,7 +122,7 @@ shape = SubResource("CircleShape2D_h5bs8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_urq6u")
 region_enabled = true
-region_rect = Rect2(0, 169.066, 16.7062, 17.5247)
+region_rect = Rect2(596, 172.5, 7, 9)
 
 [node name="CloseArea" type="Area2D" parent="."]
 scale = Vector2(2, 1.92)

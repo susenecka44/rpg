@@ -8,7 +8,6 @@ var original_scale: Vector2
 var time_elapsed: float = 0.0
 
 func _ready():
-	# Store the original scale to use as a base
 	original_scale = scale  
 
 func _process(delta: float) -> void:

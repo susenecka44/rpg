@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn1nuedl8yvma"]
+[gd_scene load_steps=9 format=3 uid="uid://bn1nuedl8yvma"]
 
 [ext_resource type="TileSet" uid="uid://wims2spvuw0l" path="res://WorldTileset.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://b4t40w81b266p" path="res://scenes/Camera.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Curve" uid="uid://cf02us474r7ef" path="res://Scalecurve/coinCurve.tres" id="4_mofor"]
 [ext_resource type="PackedScene" uid="uid://ch0qbnawcqjk0" path="res://scenes/CoinsLarge.tscn" id="5"]
 [ext_resource type="Script" path="res://scenes/camera_script.gd" id="6_aw68x"]
+[ext_resource type="PackedScene" uid="uid://dmorkovcjsd86" path="res://scenes/NPC.tscn" id="8_ynihg"]
 
 [node name="House" type="Node2D"]
 position = Vector2(-39, -10)
@@ -46,3 +47,10 @@ position = Vector2(472, 424)
 zoom = Vector2(3, 3)
 script = ExtResource("6_aw68x")
 follow_object = NodePath("../Player")
+
+[node name="Npc" parent="." instance=ExtResource("8_ynihg")]
+position = Vector2(440, 361)
+recruit_converstation = Array[String](["I can't go outside I'm scared", "I wanted to go pick some mushrooms for ehm, ehm purposes...", "Anyways", "Can you slay the monsters in the forrest please? there are 5 of those nasty creatures"])
+quest_conversation = Array[String](["have you slay them all?", "don't get distracted by the nature traveller and complete my quest at once!", "*she gets unpatient*", "KILL THE MONSTERS YOU IDIOT!!!!"])
+completed_coversation = Array[String](["Thanks love, if you would like to join me after for some tea, i'd pick those mushroom in the forrest so it tastes good", "these flowers in the corner would be nice addition to it, maybe I'll grow some more..."])
+quest = 1

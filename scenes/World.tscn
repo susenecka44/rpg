@@ -49,6 +49,7 @@ tile_set = ExtResource("1")
 [node name="objects" type="TileMapLayer" parent="Environment/TileMap"]
 z_index = 4
 use_parent_material = true
+tile_map_data = PackedByteArray("AAAnABcAAAAAAAoAAAA=")
 tile_set = ExtResource("1")
 
 [node name="TeleportToHouse" parent="Environment" instance=ExtResource("4")]
@@ -136,7 +137,7 @@ script = ExtResource("10_p6ake")
 follow_object = NodePath("../Player")
 
 [node name="Npc" parent="." instance=ExtResource("11_jrxj2")]
-position = Vector2(576, 328)
+position = Vector2(582, 328)
 recruit_converstation = Array[String](["Hi there traveler", "collect me some coins will ya?", "'bout 20 would do", "*he winks at you wierdly*"])
 quest_conversation = Array[String](["have you found the 20 yet?"])
 completed_coversation = Array[String](["Hihihihihi thanks for the coin hihi", "finaly can afford some candy.. ehhh what?", "what you lookin' at huh?", "drugs are not healthy kid", "*pupils widen*", "*he stares at you intensly*"])

@@ -3,6 +3,11 @@ extends StaticBody2D
 @export var recruit_converstation: Array[String]
 @export var quest_conversation: Array[String]
 @export var completed_coversation: Array[String]
+@export var quest: int
+
+# 0 = sellout, chce 20 goldu
+# 1 = combat clovek, chce zabit priserky
+# 2 = kamen nuzky za goldy
 
 var active: bool = false
 
@@ -39,3 +44,14 @@ func _on_close_area_area_entered(area: Area2D) -> void:
 
 func _on_close_area_area_exited(area: Area2D) -> void:
 	$AnimationPlayer.play("hide")
+
+
+func _check_completion_0():
+	if PlayerState.coins >= 20:
+		finished_quest = true
+		active_quest = false
+		
+func _check_completion_1():
+	if PlayerState.monsters_slain >= 5:
+		finished_quest = true
+		active_quest = false
