@@ -21,9 +21,13 @@ var cacti_damage = 10
 
 func _ready():
 	# align position to the middle of a tile
+	print(GameData.next_location)
+	position = GameData.next_location
+	"""
 	position.x = int(position.x / TILE_SIZE) * TILE_SIZE
 	position.y = int(position.y / TILE_SIZE) * TILE_SIZE
 	position += Vector2.ONE * TILE_SIZE/2
+	"""
 	# set timer interval according to the speed
 	$MoveTimer.wait_time = 1.0/speed
 

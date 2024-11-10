@@ -10,15 +10,17 @@ config_version=5
 
 [application]
 
-config/name="3-1-TweeningRPG"
+config/name="GodotRPG"
+config/version="0.5"
 run/main_scene="res://scenes/World.tscn"
 config/features=PackedStringArray("4.3")
-config/icon="res://icon.png"
+config/icon="res://sprites/ui/UIbg.png"
 
 [autoload]
 
 PlayerState="*res://scripts/PlayerState.gd"
 HUD="*res://scenes/HUD.tscn"
+GameData="*res://scripts/GameData.gd"
 
 [display]
 

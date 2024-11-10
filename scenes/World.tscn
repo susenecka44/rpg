@@ -104,7 +104,7 @@ position = Vector2(200, 344)
 
 [node name="Player" parent="." instance=ExtResource("2")]
 z_index = 20
-position = Vector2(532, 385)
+position = Vector2(420, 340)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow_object") instance=ExtResource("3")]
 position = Vector2(530, 342)
