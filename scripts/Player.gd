@@ -21,8 +21,12 @@ var cacti_damage = 10
 
 func _ready():
 	position = GameData.next_location
-	$MoveTimer.wait_time = 1.0/speed  
-	
+	$MoveTimer.wait_time = 1.0 / speed  
+
+	if $HurtTimer:
+		$HurtTimer.timeout.connect(_on_HurtTimer_timeout)
+
+
 func _unhandled_input(event):
 	for action in inputs:
 		if event.is_action_pressed(action):
@@ -62,6 +66,13 @@ func _on_MoveTimer_timeout():
 func get_hurt(value):
 	PlayerState.decrease_health(value)
 	camera_toshake.shake()
+	
+	$Sprite2D.modulate = Color(1, 0, 0)  
+	if $HurtTimer:
+		$HurtTimer.start()
+
+func _on_HurtTimer_timeout():
+	$Sprite2D.modulate = Color(1, 1, 1)  
 
 func collect_coins(value):
 	PlayerState.add_coins(value)

@@ -35,6 +35,7 @@ next_location = Vector2(420, 340)
 
 [node name="CoinsLarge" parent="Environment" instance=ExtResource("5")]
 position = Vector2(504, 376)
+scale_curve = null
 
 [node name="Player" parent="." instance=ExtResource("3")]
 position = Vector2(480, 440)

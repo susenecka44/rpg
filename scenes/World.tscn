@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://ds8leq4e402x"]
+[gd_scene load_steps=13 format=4 uid="uid://ds8leq4e402x"]
 
 [ext_resource type="TileSet" uid="uid://wims2spvuw0l" path="res://WorldTileset.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://cnly8rx3dgsy4" path="res://scenes/Player.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvq2c55s607ee" path="res://scenes/Cactus.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://bmdeddq4vad76" path="res://scenes/InfoPanel.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://bmd8675l1kdou" path="res://scenes/CoinsSmall.tscn" id="7"]
+[ext_resource type="Curve" uid="uid://cf02us474r7ef" path="res://Scalecurve/coinCurve.tres" id="7_vafpl"]
 [ext_resource type="PackedScene" uid="uid://bp0fahsuvhdbu" path="res://scenes/CoinsMedium.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://ch0qbnawcqjk0" path="res://scenes/CoinsLarge.tscn" id="9"]
 [ext_resource type="Script" path="res://scenes/camera_script.gd" id="10_p6ake"]
@@ -85,22 +86,30 @@ message = "The yellow blobs are coins. You can collect them."
 [node name="Coins" type="Node2D" parent="Environment"]
 
 [node name="CoinsSmall" parent="Environment/Coins" instance=ExtResource("7")]
-position = Vector2(296, 296)
+position = Vector2(570, 422)
 
 [node name="CoinsSmall2" parent="Environment/Coins" instance=ExtResource("7")]
 position = Vector2(392, 216)
 
 [node name="CoinsMedium3" parent="Environment/Coins" instance=ExtResource("8")]
 position = Vector2(360, 248)
+scale_curve = ExtResource("7_vafpl")
 
 [node name="CoinsMedium4" parent="Environment/Coins" instance=ExtResource("8")]
 position = Vector2(280, 200)
+scale_curve = ExtResource("7_vafpl")
 
 [node name="CoinsLarge3" parent="Environment/Coins" instance=ExtResource("9")]
 position = Vector2(312, 216)
+scale_curve = ExtResource("7_vafpl")
 
 [node name="CoinsLarge4" parent="Environment/Coins" instance=ExtResource("9")]
 position = Vector2(200, 344)
+scale_curve = ExtResource("7_vafpl")
+
+[node name="CoinsLarge5" parent="Environment/Coins" instance=ExtResource("9")]
+position = Vector2(586, 456)
+scale_curve = ExtResource("7_vafpl")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera_toshake") instance=ExtResource("2")]
 z_index = 20
