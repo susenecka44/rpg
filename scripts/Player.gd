@@ -84,9 +84,34 @@ func get_hurt(value):
 	floating_text.text = str(value) 
 	floating_text.position = position + Vector2(0, -10) 
 	get_parent().add_child(floating_text)  
+	
+	if PlayerState.health == 0:
+		die()
 
 func _on_HurtTimer_timeout():
 	$Sprite2D.modulate = Color(1, 1, 1)  
 
 func collect_coins(value):
 	PlayerState.add_coins(value)
+	
+
+func die():
+	PlayerState.coins = 0
+	PlayerState.health = 100
+	HUD.update_coins(PlayerState.coins)
+	HUD.update_health(PlayerState.health)
+	position = GameData.spawn_location
+	SceneTransition.death()
+	
+	await wait(1)  
+	
+	if $HurtTimer:
+		$HurtTimer.start()
+	
+	var floating_text = FloatingTextScene.instantiate()
+	floating_text.text = "YOU DIED - and lost all coins" 
+	floating_text.position = position + Vector2(0, -10) 
+	get_parent().add_child(floating_text)
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout

@@ -10,6 +10,11 @@ func change_scene_with_fade(next_scene: String):
 	get_tree().change_scene_to_file(next_scene)
 	$AnimationPlayer.play("fadein")
 
+func death():
+	$AnimationPlayer.play("fadeout")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("fadein")
+
 func _ready() -> void:
 	$AnimationPlayer.play("fadein")
 	await  $AnimationPlayer.animation_finished
