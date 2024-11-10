@@ -12,7 +12,7 @@ var finished_quest: bool = false
 signal activation
 
 func _ready() -> void:
-	$CanvasLayer/TextureRect.hide()
+	$AnimationPlayer.play("hide")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 
 func _on_close_area_area_entered(area: Area2D) -> void:
 	if area is Player:
-		$CanvasLayer/TextureRect.show()
+		$AnimationPlayer.play("panel")
 		active = true
 		if !active_quest && !finished_quest:
 			for text in recruit_converstation:
@@ -40,4 +40,4 @@ func _on_close_area_area_entered(area: Area2D) -> void:
 
 
 func _on_close_area_area_exited(area: Area2D) -> void:
-	$CanvasLayer/TextureRect.hide()
+	$AnimationPlayer.play("hide")
