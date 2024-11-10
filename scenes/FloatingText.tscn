@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c18nt84r126uq"]
+
+[ext_resource type="Script" path="res://scenes/floating_text.gd" id="1_pt7m6"]
+
+[node name="FloatingText" type="Label"]
+modulate = Color(0.585183, 0.0035484, 1.92523e-07, 1)
+visibility_layer = 525248
+script = ExtResource("1_pt7m6")

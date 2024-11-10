@@ -7,6 +7,7 @@ class_name Player
 signal moved
 
 const TILE_SIZE = 16
+const FloatingTextScene = preload("res://scenes/FloatingText.tscn")  # Preload FloatingText scene
 
 const inputs = {
 	"Left": Vector2.LEFT,
@@ -25,7 +26,6 @@ func _ready():
 
 	if $HurtTimer:
 		$HurtTimer.timeout.connect(_on_HurtTimer_timeout)
-
 
 func _unhandled_input(event):
 	for action in inputs:
@@ -51,7 +51,7 @@ func move_tile(direction: Vector2):
 		return true
 
 func move_with_tween(target_position: Vector2):
-	var tween = create_tween()
+	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", target_position, 1.0 / speed)
 	tween.set_parallel(true) 
 
@@ -70,6 +70,11 @@ func get_hurt(value):
 	$Sprite2D.modulate = Color(1, 0, 0)  
 	if $HurtTimer:
 		$HurtTimer.start()
+
+	var floating_text = FloatingTextScene.instantiate()
+	floating_text.text = str(value) 
+	floating_text.position = position + Vector2(0, -10) 
+	get_parent().add_child(floating_text)  
 
 func _on_HurtTimer_timeout():
 	$Sprite2D.modulate = Color(1, 1, 1)  
