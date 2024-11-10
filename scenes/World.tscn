@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ds8leq4e402x"]
+[gd_scene load_steps=12 format=4 uid="uid://ds8leq4e402x"]
 
 [ext_resource type="TileSet" uid="uid://wims2spvuw0l" path="res://WorldTileset.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://cnly8rx3dgsy4" path="res://scenes/Player.tscn" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bp0fahsuvhdbu" path="res://scenes/CoinsMedium.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://ch0qbnawcqjk0" path="res://scenes/CoinsLarge.tscn" id="9"]
 [ext_resource type="Script" path="res://scenes/camera_script.gd" id="10_p6ake"]
+[ext_resource type="PackedScene" uid="uid://dmorkovcjsd86" path="res://scenes/NPC.tscn" id="11_jrxj2"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -103,10 +104,14 @@ position = Vector2(200, 344)
 
 [node name="Player" parent="." instance=ExtResource("2")]
 z_index = 20
-position = Vector2(605, 373)
+position = Vector2(532, 385)
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("follow_object") instance=ExtResource("3")]
-position = Vector2(605, 373)
+position = Vector2(530, 342)
 zoom = Vector2(3, 3)
 script = ExtResource("10_p6ake")
 follow_object = NodePath("../Player")
+
+[node name="Npc" parent="." instance=ExtResource("11_jrxj2")]
+position = Vector2(576, 328)
+converstation = Array[String](["CUS ", "HADE", "FUCK", "NEFUNGUJE TO"])
