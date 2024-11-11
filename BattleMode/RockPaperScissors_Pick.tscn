@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw0d15122rlm2"]
+
+[ext_resource type="Script" path="res://BattleMode/rock_paper_scissors_pick.gd" id="1_4p1yw"]
+[ext_resource type="Texture2D" uid="uid://cwgsnyy8ditkf" path="res://sprites/pack/roguelikeSheet_transparent.png" id="1_oanis"]
+
+[node name="RockPaperScissorsPick" type="Node"]
+script = ExtResource("1_4p1yw")
+
+[node name="green" type="Node2D" parent="."]
+
+[node name="Green" type="Sprite2D" parent="green"]
+position = Vector2(40, 0)
+texture = ExtResource("1_oanis")
+region_enabled = true
+region_rect = Rect2(357, 156, 16, 16)
+
+[node name="GreenPicked" type="Sprite2D" parent="green"]
+position = Vector2(40, 0)
+texture = ExtResource("1_oanis")
+region_enabled = true
+region_rect = Rect2(255.3, 153, 16, 16)
+
+[node name="ColorRect" type="ColorRect" parent="green"]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0
+
+[node name="red" type="Node2D" parent="."]
+
+[node name="Red" type="Sprite2D" parent="red"]
+position = Vector2(20, 0)
+texture = ExtResource("1_oanis")
+region_enabled = true
+region_rect = Rect2(340, 156, 16, 16)
+
+[node name="RedPicked" type="Sprite2D" parent="red"]
+position = Vector2(20, 0)
+texture = ExtResource("1_oanis")
+region_enabled = true
+region_rect = Rect2(238, 154, 16, 16)
+
+[node name="ColorRect" type="ColorRect" parent="red"]
+offset_left = 11.0
+offset_top = -9.0
+offset_right = 29.0
+offset_bottom = 9.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Yellow" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_oanis")
+region_enabled = true
+region_rect = Rect2(323, 156, 16, 16)
+
+[node name="YellowPicked" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_oanis")
+region_enabled = true
+region_rect = Rect2(221, 153, 16, 16)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = 31.0
+offset_top = -9.0
+offset_right = 49.0
+offset_bottom = 9.0

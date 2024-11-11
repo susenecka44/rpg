@@ -11,7 +11,7 @@ size = Vector2(22.1296, 22.2857)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agpn7"]
 
-[node name="KnightEnemy" type="StaticBody2D" groups=["KnightEnemy"]]
+[node name="KnightEnemy" type="CharacterBody2D" groups=["KnightEnemy"]]
 collision_layer = 255
 script = ExtResource("1_xd4tb")
 

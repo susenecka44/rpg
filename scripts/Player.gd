@@ -96,10 +96,6 @@ func collect_coins(value):
 	
 
 func die():
-	PlayerState.coins = 0
-	PlayerState.health = 100
-	HUD.update_coins(PlayerState.coins)
-	HUD.update_health(PlayerState.health)
 	
 	if $HurtTimer:
 		$HurtTimer.start()
@@ -110,9 +106,12 @@ func die():
 	
 	await wait(0.5)  
 	SceneTransition.death()
-	
+
 	SceneTransition.change_scene_with_fade("res://scenes/World.tscn")
-	
+	PlayerState.coins = 0
+	PlayerState.health = 100
+	HUD.update_coins(PlayerState.coins)
+	HUD.update_health(PlayerState.health)
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
