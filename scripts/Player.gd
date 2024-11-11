@@ -100,18 +100,19 @@ func die():
 	PlayerState.health = 100
 	HUD.update_coins(PlayerState.coins)
 	HUD.update_health(PlayerState.health)
-	position = GameData.spawn_location
-	SceneTransition.death()
-	
-	await wait(1)  
 	
 	if $HurtTimer:
 		$HurtTimer.start()
-	
 	var floating_text = FloatingTextScene.instantiate()
-	floating_text.text = "YOU DIED - and lost all coins" 
+	floating_text.text = "YOU DIED - you loose all progress" 
 	floating_text.position = position + Vector2(0, -10) 
 	get_parent().add_child(floating_text)
+	
+	await wait(0.5)  
+	SceneTransition.death()
+	
+	SceneTransition.change_scene_with_fade("res://scenes/World.tscn")
+	
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

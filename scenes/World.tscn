@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ds8leq4e402x"]
+[gd_scene load_steps=15 format=4 uid="uid://ds8leq4e402x"]
 
 [ext_resource type="TileSet" uid="uid://wims2spvuw0l" path="res://WorldTileset.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://cnly8rx3dgsy4" path="res://scenes/Player.tscn" id="2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scenes/camera_script.gd" id="10_p6ake"]
 [ext_resource type="PackedScene" uid="uid://dmorkovcjsd86" path="res://scenes/NPC.tscn" id="11_jrxj2"]
 [ext_resource type="PackedScene" uid="uid://od2cjlui7ex0" path="res://scenes/KnightEnemy.tscn" id="13_ukt50"]
+[ext_resource type="PackedScene" uid="uid://c6owkvpyjim8f" path="res://scenes/MonsterEnemy.tscn" id="14_y2ckj"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
@@ -164,3 +165,18 @@ position = Vector2(485, 608)
 
 [node name="KnightEnemy7" parent="Enemies" instance=ExtResource("13_ukt50")]
 position = Vector2(610, 648)
+
+[node name="MonsterEnemy" parent="Enemies" instance=ExtResource("14_y2ckj")]
+position = Vector2(227, 285)
+
+[node name="MonsterEnemy2" parent="Enemies" instance=ExtResource("14_y2ckj")]
+position = Vector2(169, 321)
+
+[node name="MonsterEnemy3" parent="Enemies" instance=ExtResource("14_y2ckj")]
+position = Vector2(241, 208)
+
+[node name="MonsterEnemy4" parent="Enemies" instance=ExtResource("14_y2ckj")]
+position = Vector2(109, 455)
+
+[node name="MonsterEnemy5" parent="Enemies" instance=ExtResource("14_y2ckj")]
+position = Vector2(263, 514)
