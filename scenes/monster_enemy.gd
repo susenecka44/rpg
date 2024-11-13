@@ -8,6 +8,8 @@ class_name MonsterEnemy
 
 var player_in_range: bool = false
 var player_reference: Player = null 
+@onready var floating_text:Label = $Label
+
 
 func _ready() -> void:
 	z_index = 8
@@ -18,11 +20,22 @@ func _process(delta: float) -> void:
 	if GameData.killmonster == true:
 		if $HurtTimer:
 			$HurtTimer.start()
-		var floating_text = FloatingTextScene.instantiate()
-		floating_text.text = "YOU DIED - you loose all progress" 
+		floating_text.text = str("- 1000") 
+		floating_text.modulate = Color.GREEN
 		floating_text.position = position + Vector2(0, -10) 
-		get_parent().add_child(floating_text)
-		queue_free()
+		floating_text.start_floating_animation()
+		
+		var timer = Timer.new()
+		timer.wait_time = floating_text.float_duration  
+		timer.one_shot = true
+		timer.connect("timeout", Callable(self, "_on_animation_completed"))
+		add_child(timer)
+		timer.start()
+
+func _on_animation_completed() -> void:
+	queue_free()
+
+
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area is Player:

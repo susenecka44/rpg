@@ -24,6 +24,11 @@ func _process(delta: float) -> void:
 
 func _on_close_area_area_entered(area: Area2D) -> void:
 	if area is Player:
+		if quest == 0:
+			_check_completion_0()
+		elif quest == 1:
+			_check_completion_1()
+		
 		$AnimationPlayer.play("panel")
 		active = true
 		if !active_quest && !finished_quest:
@@ -49,8 +54,10 @@ func _check_completion_0():
 	if PlayerState.coins >= 20:
 		finished_quest = true
 		active_quest = false
+		GameData.finished_quests +=1
 		
 func _check_completion_1():
-	if PlayerState.monster_slain == true:
+	if PlayerState.killmonster == true:
+		GameData.finished_quests +=1
 		finished_quest = true
 		active_quest = false

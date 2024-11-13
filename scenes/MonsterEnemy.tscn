@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6owkvpyjim8f"]
+[gd_scene load_steps=7 format=3 uid="uid://c6owkvpyjim8f"]
 
 [ext_resource type="Script" path="res://scenes/monster_enemy.gd" id="1_2lsx5"]
 [ext_resource type="Texture2D" uid="uid://dlo360g163kto" path="res://sprites/characters/roguelikeChar_transparent.png" id="2_2rn2x"]
+[ext_resource type="Script" path="res://scenes/label_monster.gd" id="3_7ukjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr47k"]
 
@@ -11,8 +12,6 @@
 
 [node name="MonsterEnemy" type="CharacterBody2D"]
 script = ExtResource("1_2lsx5")
-speed = null
-follow_duration = null
 damage_to_player = 25
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -42,6 +41,7 @@ offset_left = -19.0
 offset_top = -32.0
 offset_right = 21.0
 offset_bottom = -9.0
+script = ExtResource("3_7ukjb")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
