@@ -4,7 +4,7 @@ extends Label
 @export var float_duration: float = 0.5  
 @export var start_scale: float = 0.5
 @export var end_scale: float = 1     
-
+@export var color: Color = 'GREEN'
 
 func start_floating_animation():
 	z_index = 100
@@ -18,7 +18,7 @@ func start_floating_animation():
 	
 	tween.tween_property(self, "position:y", target_position_y, float_duration)
 
-	modulate = 'GREEN'
+	modulate = color
 	modulate.a = 1.0  
 	tween.tween_property(self, "modulate:a", 0.0, float_duration)
 	

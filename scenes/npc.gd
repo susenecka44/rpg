@@ -5,6 +5,8 @@ extends StaticBody2D
 @export var completed_coversation: Array[String]
 @export var quest: int
 
+
+@onready var text_label : Label = $Label
 # 0 = sellout, chce 20 goldu
 # 1 = combat clovek, chce zabit priserky
 
@@ -44,6 +46,9 @@ func _on_close_area_area_entered(area: Area2D) -> void:
 			for text in completed_coversation:
 				$CanvasLayer/TextureRect/Label.text = text
 				await activation
+	if GameData.finished_quests >= 2:
+		var player = area as Player
+		player.completed_quests()
 
 
 func _on_close_area_area_exited(area: Area2D) -> void:
@@ -57,7 +62,7 @@ func _check_completion_0():
 		GameData.finished_quests +=1
 		
 func _check_completion_1():
-	if PlayerState.killmonster == true:
+	if GameData.killmonster == true:
 		GameData.finished_quests +=1
 		finished_quest = true
 		active_quest = false

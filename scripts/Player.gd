@@ -121,3 +121,12 @@ func die():
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+func completed_quests():
+	if $HurtTimer:
+		$HurtTimer.start()
+	var floating_text = FloatingTextScene.instantiate()
+	floating_text.text = "YOU COMPLETED ALL QUESTS" 
+	floating_text.modulate = 'GREEN'
+	floating_text.position = position + Vector2(0, +10) 
+	get_parent().add_child(floating_text)
