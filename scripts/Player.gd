@@ -28,6 +28,12 @@ func _ready():
 	if $HurtTimer:
 		$HurtTimer.timeout.connect(_on_HurtTimer_timeout)
 
+func _process(delta: float) -> void:
+	if GameData.minigame_dammage > 0:
+		get_hurt(GameData.minigame_dammage)
+		GameData.minigame_dammage = 0
+
+
 func _unhandled_input(event):
 	for action in inputs:
 		if event.is_action_pressed(action):

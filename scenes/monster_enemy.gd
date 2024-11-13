@@ -15,6 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player_in_range and player_reference:
 		update_tween_position(player_reference.position)
+	if GameData.killmonster == true:
+		queue_free()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area is Player:
@@ -37,4 +39,8 @@ func stop_following() -> void:
 
 func _on_dammage_area_area_entered(area: Area2D) -> void:
 	if area is Player:
-		SceneTransition.change_scene_with_fade("res://scenes/CombatScene.tscn")
+		get_tree().paused = true
+		PhysicsServer2D.set_active(true)
+		
+		var fishing_game = preload("res://BattleMode/Fishing_minigame.tscn").instantiate()
+		get_tree().current_scene.add_child(fishing_game)

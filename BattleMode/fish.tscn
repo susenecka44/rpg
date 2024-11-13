@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3qeecg1o0u31"]
+
+[ext_resource type="Script" path="res://BattleMode/fish.gd" id="1_utqvl"]
+[ext_resource type="Texture2D" uid="uid://dlo360g163kto" path="res://sprites/characters/roguelikeChar_transparent.png" id="2_dp108"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saj8p"]
+atlas = ExtResource("2_dp108")
+region = Rect2(0, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ockk"]
+atlas = ExtResource("2_dp108")
+region = Rect2(17, 51, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grplt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saj8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ockk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w83ds"]
+
+[node name="Fish" type="CharacterBody2D"]
+script = ExtResource("1_utqvl")
+
+[node name="fish_sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_grplt")
+animation = &"move"
+frame = 1
+frame_progress = 0.0551597
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w83ds")

@@ -1,4 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://clyunbpmfajqn"]
+[gd_scene load_steps=9 format=3 uid="uid://clyunbpmfajqn"]
+
+[ext_resource type="Script" path="res://BattleMode/fishing_game.gd" id="1_lxlwk"]
+[ext_resource type="PackedScene" uid="uid://c3qeecg1o0u31" path="res://BattleMode/fish.tscn" id="1_op2tm"]
+[ext_resource type="PackedScene" uid="uid://hsvosrmlnxo" path="res://BattleMode/target.tscn" id="2_qrkov"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_52oll"]
 specular_color = Color(0.207843, 0.670588, 0.333333, 1)
@@ -20,11 +24,14 @@ bg_color = Color(0.0220891, 0.12318, 0.0620181, 1)
 process_mode = 3
 
 [node name="FishingGame" type="Control" parent="."]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 344.0
+offset_top = 152.0
+offset_right = 644.0
+offset_bottom = 452.0
+script = ExtResource("1_lxlwk")
 
 [node name="PanelContainer" type="PanelContainer" parent="FishingGame"]
 layout_mode = 1
@@ -60,3 +67,13 @@ show_percentage = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_eig71")
+
+[node name="Fish" parent="FishingGame" node_paths=PackedStringArray("aquaContainer") instance=ExtResource("1_op2tm")]
+position = Vector2(152, 152)
+aquaContainer = NodePath("../PanelContainer/MarginContainer/VBoxContainer/AquaContainer")
+
+[node name="Target" parent="FishingGame" instance=ExtResource("2_qrkov")]
+position = Vector2(152, 152)
+
+[connection signal="target_entered" from="FishingGame/Target" to="FishingGame" method="_on_target_target_entered"]
+[connection signal="target_exited" from="FishingGame/Target" to="FishingGame" method="_on_target_target_exited"]

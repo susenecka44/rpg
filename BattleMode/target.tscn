@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hsvosrmlnxo"]
+
+[ext_resource type="Script" path="res://BattleMode/target.gd" id="1_ug0hw"]
+[ext_resource type="Texture2D" uid="uid://cwgsnyy8ditkf" path="res://sprites/pack/roguelikeSheet_transparent.png" id="2_xy8m2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u60vs"]
+
+[node name="Target" type="Area2D"]
+script = ExtResource("1_ug0hw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xy8m2")
+region_enabled = true
+region_rect = Rect2(698, 307, 30, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u60vs")
