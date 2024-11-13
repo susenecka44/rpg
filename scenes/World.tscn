@@ -92,7 +92,7 @@ message = "The yellow blobs are coins. You can collect them."
 
 [node name="InfoPanel4" parent="Environment/InfoPanels" instance=ExtResource("6")]
 position = Vector2(555, 408)
-message = "Welcome to my little world. There are two NPCs. One outside, One Inside. Go finish all the quests and explore. <3 made by susenka <3"
+message = "Welcome to my little world. There are two NPCs. One outside, One Inside. Go finish all the quests and explore. If you die, the game restarts. <3 made by susenka <3"
 
 [node name="InfoPanel5" parent="Environment/InfoPanels" instance=ExtResource("6")]
 position = Vector2(391, 411)
@@ -101,6 +101,10 @@ message = "The battle minigame is simple, use arrows to shoot the monster. Once 
 [node name="InfoPanel6" parent="Environment/InfoPanels" instance=ExtResource("6")]
 position = Vector2(606, 511)
 message = "The knights deal dammage on touch, so be careful when you steal their gold!"
+
+[node name="InfoPanel7" parent="Environment/InfoPanels" instance=ExtResource("6")]
+position = Vector2(151, 500)
+message = "This is my cute camp corner - Julinka"
 
 [node name="Coins" type="Node2D" parent="Environment"]
 

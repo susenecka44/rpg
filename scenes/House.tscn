@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn1nuedl8yvma"]
+[gd_scene load_steps=7 format=3 uid="uid://bn1nuedl8yvma"]
 
 [ext_resource type="TileSet" uid="uid://wims2spvuw0l" path="res://WorldTileset.tres" id="1"]
 [ext_resource type="PackedScene" uid="uid://b4t40w81b266p" path="res://scenes/Camera.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cnly8rx3dgsy4" path="res://scenes/Player.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://h0pjed41lu5b" path="res://scenes/Teleport.tscn" id="4"]
-[ext_resource type="Curve" uid="uid://cf02us474r7ef" path="res://Scalecurve/coinCurve.tres" id="4_mofor"]
-[ext_resource type="PackedScene" uid="uid://ch0qbnawcqjk0" path="res://scenes/CoinsLarge.tscn" id="5"]
 [ext_resource type="Script" path="res://scenes/camera_script.gd" id="6_aw68x"]
 [ext_resource type="PackedScene" uid="uid://dmorkovcjsd86" path="res://scenes/NPC.tscn" id="8_ynihg"]
 
@@ -34,10 +32,6 @@ position = Vector2(480, 447)
 next_scene = "res://scenes/World.tscn"
 message = "Press SPACE to leave."
 next_location = Vector2(420, 340)
-
-[node name="CoinsLarge" parent="Environment" instance=ExtResource("5")]
-position = Vector2(504, 376)
-scale_curve = ExtResource("4_mofor")
 
 [node name="Player" parent="." instance=ExtResource("3")]
 position = Vector2(480, 440)
