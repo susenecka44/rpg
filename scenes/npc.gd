@@ -7,7 +7,6 @@ extends StaticBody2D
 
 # 0 = sellout, chce 20 goldu
 # 1 = combat clovek, chce zabit priserky
-# 2 = kamen nuzky za goldy
 
 var active: bool = false
 
@@ -52,6 +51,6 @@ func _check_completion_0():
 		active_quest = false
 		
 func _check_completion_1():
-	if PlayerState.monsters_slain >= 5:
+	if PlayerState.monster_slain == true:
 		finished_quest = true
 		active_quest = false

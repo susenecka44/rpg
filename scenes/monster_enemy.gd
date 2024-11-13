@@ -16,6 +16,12 @@ func _process(delta: float) -> void:
 	if player_in_range and player_reference:
 		update_tween_position(player_reference.position)
 	if GameData.killmonster == true:
+		if $HurtTimer:
+			$HurtTimer.start()
+		var floating_text = FloatingTextScene.instantiate()
+		floating_text.text = "YOU DIED - you loose all progress" 
+		floating_text.position = position + Vector2(0, -10) 
+		get_parent().add_child(floating_text)
 		queue_free()
 
 func _on_detection_area_area_entered(area: Area2D) -> void:

@@ -11,6 +11,8 @@
 
 [node name="MonsterEnemy" type="CharacterBody2D"]
 script = ExtResource("1_2lsx5")
+speed = null
+follow_duration = null
 damage_to_player = 25
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -32,6 +34,14 @@ shape = SubResource("RectangleShape2D_s8xe2")
 texture = ExtResource("2_2rn2x")
 region_enabled = true
 region_rect = Rect2(0, 52, 16, 16)
+
+[node name="HurtTimer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -32.0
+offset_right = 21.0
+offset_bottom = -9.0
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
