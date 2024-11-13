@@ -37,5 +37,4 @@ func stop_following() -> void:
 
 func _on_dammage_area_area_entered(area: Area2D) -> void:
 	if area is Player:
-		var player = area as Player
-		player.get_hurt(damage_to_player)
+		SceneTransition.change_scene_with_fade("res://scenes/CombatScene.tscn")

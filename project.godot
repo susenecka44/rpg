@@ -18,6 +18,7 @@ config/icon="res://sprites/ui/UIbg.png"
 
 [autoload]
 
+RockPaperScissorsPick="*res://BattleMode/RockPaperScissors_Pick.tscn"
 SceneTransition="*res://scenes/SceneTransition.tscn"
 PlayerState="*res://scripts/PlayerState.gd"
 HUD="*res://scenes/HUD.tscn"

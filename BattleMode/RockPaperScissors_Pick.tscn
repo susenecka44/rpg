@@ -3,12 +3,13 @@
 [ext_resource type="Script" path="res://BattleMode/rock_paper_scissors_pick.gd" id="1_4p1yw"]
 [ext_resource type="Texture2D" uid="uid://cwgsnyy8ditkf" path="res://sprites/pack/roguelikeSheet_transparent.png" id="1_oanis"]
 
-[node name="RockPaperScissorsPick" type="Node"]
+[node name="RockPaperScissorsPick" type="Node2D"]
 script = ExtResource("1_4p1yw")
 
 [node name="green" type="Node2D" parent="."]
 
 [node name="Green" type="Sprite2D" parent="green"]
+top_level = true
 position = Vector2(40, 0)
 texture = ExtResource("1_oanis")
 region_enabled = true
@@ -29,6 +30,7 @@ offset_bottom = 9.0
 [node name="red" type="Node2D" parent="."]
 
 [node name="Red" type="Sprite2D" parent="red"]
+top_level = true
 position = Vector2(20, 0)
 texture = ExtResource("1_oanis")
 region_enabled = true
@@ -49,6 +51,7 @@ offset_bottom = 9.0
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Yellow" type="Sprite2D" parent="Node2D"]
+top_level = true
 texture = ExtResource("1_oanis")
 region_enabled = true
 region_rect = Rect2(323, 156, 16, 16)

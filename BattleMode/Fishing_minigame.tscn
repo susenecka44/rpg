@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://clyunbpmfajqn"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_52oll"]
+specular_color = Color(0.207843, 0.670588, 0.333333, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mk8su"]
+texture = SubResource("CanvasTexture_52oll")
+modulate_color = Color(0.373957, 0.635372, 0.466057, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir8t1"]
+bg_color = Color(0.623353, 0.621225, 0.282437, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bx2s3"]
+bg_color = Color(0.845957, 0.499169, 0.297451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eig71"]
+bg_color = Color(0.0220891, 0.12318, 0.0620181, 1)
+
+[node name="FishingMinigame" type="CanvasLayer"]
+process_mode = 3
+
+[node name="FishingGame" type="Control" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="FishingGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mk8su")
+
+[node name="MarginContainer" type="MarginContainer" parent="FishingGame/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FishingGame/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="FishingGame/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CatchBar" type="ProgressBar" parent="FishingGame/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ir8t1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bx2s3")
+show_percentage = false
+
+[node name="AquaContainer" type="PanelContainer" parent="FishingGame/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_eig71")
